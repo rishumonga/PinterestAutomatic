@@ -19,31 +19,39 @@ $context_1  = stream_context_create($options_1);
 // $source_board = $_GET['source_board'];
 // $destination_board = $_GET['destination_board'];
 
-$token = "AfD5YPj_adw_kVQRwQT9PQDsbk1-FGA1nmOh5S5DLHRgt0BD6QAAAAA";
+// $token = "AfD5YPj_adw_kVQRwQT9PQDsbk1-FGA1nmOh5S5DLHRgt0BD6QAAAAA";
+$token = "jkkguygjo";
 // $source_board = "anirudhgoel/colours";
 $source_board = "tanuagupta/wallpaper";
+// $source_board = "ewrjio/wef";
 $destination_board = "anirudhgoel/trial";
 
 $url = "https://api.pinterest.com/v1/boards/".$source_board."/pins/?access_token=".$token."&fields=note%2Cimage";
 
 $data_json = file_get_contents($url, false, $context_1);
+print_r($data_json);
 $data = json_decode($data_json, true);
 
-create_pin($data, $token, $destination_board);
+if ($data["data"]) {
+	// create_pin($data, $token, $destination_board);
 
-// print_r($data_json);
+	while ($data["page"]["next"]) {
+		echo("Continue <br>");
+		$next_url = $data["page"]["next"];
+		// echo($next_url."<br>");
+		$data_json = file_get_contents($next_url, false, $context_1);
+		$data = json_decode($data_json, true);
 
-while ($data["page"]["next"]) {
-	echo("Continue <br>");
-	$next_url = $data["page"]["next"];
-	// echo($next_url."<br>");
-	$data_json = file_get_contents($next_url, false, $context_1);
-	$data = json_decode($data_json, true);
+		// create_pin($data, $token, $destination_board);
+	}
 
-	create_pin($data, $token, $destination_board);
+	echo("Done");
+} else {
+	echo($data["message"]);
 }
 
-echo("Done");
+
+
 
 function create_pin($pins, $token, $dest_board) {
 	set_time_limit(1000);
