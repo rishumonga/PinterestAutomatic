@@ -19,8 +19,8 @@ $context_1  = stream_context_create($options_1);
 // $source_board = $_GET['source_board'];
 // $destination_board = $_GET['destination_board'];
 
-// $token = "AfD5YPj_adw_kVQRwQT9PQDsbk1-FGA1nmOh5S5DLHRgt0BD6QAAAAA";
-$token = "jkkguygjo";
+$token = "AfD5YPj_adw_kVQRwQT9PQDsbk1-FGA1nmOh5S5DLHRgt0BD6QAAAAA";
+// $token = "jkkguygjo";
 // $source_board = "anirudhgoel/colours";
 $source_board = "tanuagupta/wallpaper";
 // $source_board = "ewrjio/wef";
@@ -47,6 +47,7 @@ if ($data["data"]) {
 
 	echo("Done");
 } else {
+	// Use file here instead of file_get_contents
 	echo($data["message"]);
 }
 
