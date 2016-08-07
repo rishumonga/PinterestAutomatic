@@ -51,7 +51,7 @@ if ($data["data"]) {
 	echo($data["message"]);
 }
 
-
+// Searching a way for getting error msgs from api
 
 
 function create_pin($pins, $token, $dest_board) {
