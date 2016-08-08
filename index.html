@@ -1,20 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="css/untitled">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:100,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400|Poiret+One' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="https://s-passets-cache-ak0.pinimg.com/webapp/style/app/common/images/favicon-57a225b2.png">
+
+
 	<title>Pinterest Automatic</title>
 </head>
 <body>
+	<div class="container" align="center">
+		<div class="intro-image">
+			<img src="img/pinterest.png" style="height: 100px; padding-top: 30px;" class="img-responsive">
+		</div>
 
-	<div class="input-area">
-		<input type="text" name="source_board" class="input input-lg">
-		<br>
-		<br>
-		<input type="text" name="destination_board" class="input input-lg">
+
+		<div class="input-area">
+			<div class="col-md-6" align="right">
+				<h1>Source Board : </h1>
+			</div>
+			<div class="col-md-6">
+				<input type="text" name="source_board" class="input input-lg" placeholder="Source Board">
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="col-md-6" align="right">
+				<h1>Destination Board : </h1>
+			</div>
+			<div class="col-md-6">
+				<input type="text" name="destination_board" class="input input-lg" placeholder="Destination Board">
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<button class="btn btn-lg btn-danger" onclick="pinThem();">Pin Them !</button>
+		</div>
 	</div>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
