@@ -7,7 +7,12 @@
  * @Last Modified time: 2016-06-17 00:23:10
  */
 
+require_once('inc/function.inc.php');
 
+$response = array(
+	'code' => 0,
+	'response' => "Error accessing API"
+);
 $options_1 = array(
     "ssl"=>array(
         "verify_peer"=>false,
@@ -27,56 +32,30 @@ $source_board = "tanuagupta/wallpaper";
 $destination_board = "anirudhgoel/trial";
 
 $url = "https://api.pinterest.com/v1/boards/".$source_board."/pins/?access_token=".$token."&fields=note%2Cimage";
-
 $data_json = file_get_contents($url, false, $context_1);
-print_r($data_json);
 $data = json_decode($data_json, true);
+// print_r($data_json);
 
 if ($data["data"]) {
 	// create_pin($data, $token, $destination_board);
 
 	while ($data["page"]["next"]) {
-		echo("Continue <br>");
+		// echo("Continue <br>");
 		$next_url = $data["page"]["next"];
-		// echo($next_url."<br>");
 		$data_json = file_get_contents($next_url, false, $context_1);
 		$data = json_decode($data_json, true);
 
 		// create_pin($data, $token, $destination_board);
 	}
 
-	echo("Done");
+	$response["code"] = 2;
+	$response["response"] = "successfull";
 } else {
-	// Use file here instead of file_get_contents
-	echo($data["message"]);
+	$response["code"] = 1;
+	$response["response"] = "Error adding Pins";
 }
 
-// Searching a way for getting error msgs from api
 
 
-function create_pin($pins, $token, $dest_board) {
-	set_time_limit(1000);
-	$url = "https://api.pinterest.com/v1/pins/?access_token=".$token."&fields=link%2Cnote%2Curl";
-
-	foreach ($pins["data"] as $pin) {
-		$data = array("board" => "$dest_board", "note" => $pin["note"], "image_url" => $pin["image"]["original"]["url"]);
-
-		// use key 'http' even if you send the request to https://...
-		$options_2 = array(
-		    "ssl"=>array(
-		        "verify_peer"=>false,
-		        "verify_peer_name"=>false,
-		    ),
-		    "http" => array(
-		        "header"  => "Content-type: application/x-www-form-urlencoded\r\n",
-		        "method"  => 'POST',
-		        "content" => http_build_query($data)
-		    )
-		);
-		$context = stream_context_create($options_2);
-		$result = file_get_contents($url, false, $context);
-		echo("Pinned !");
-	}
-}
-
+echo json_encode($response);
 ?>
