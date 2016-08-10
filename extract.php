@@ -32,6 +32,9 @@ $source_board = "tanuagupta/wallpaper";
 $destination_board = "anirudhgoel/trial";
 
 $url = "https://api.pinterest.com/v1/boards/".$source_board."/pins/?access_token=".$token."&fields=note%2Cimage";
+
+// Echo the url formed here and try to run it in browser and then check for mistakes
+
 $data_json = file_get_contents($url, false, $context_1);
 $data = json_decode($data_json, true);
 // print_r($data_json);
