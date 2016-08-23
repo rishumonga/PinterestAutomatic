@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="author" content="Anirudh Goel" />
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:100,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400|Poiret+One' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="https://s-passets-cache-ak0.pinimg.com/webapp/style/app/common/images/favicon-57a225b2.png">
+	<link rel="stylesheet" type="text/css" href="css/pin.css">
+
+
+	<title>Pinterest Automatic</title>
+</head>
+<body>
+	<div class="container" align="center">
+		<div class="intro-image">
+			<img src="img/pinterest.png" style="width: 530px; padding-top: 30px;" class="img-responsive">
+		</div>
+
+
+		<div class="input-area">
+			<form onsubmit="pinThem(event);">
+				<div class="col-md-6 col-sm-12 col-xs-12 title" style="padding-top: 8px;">
+					<h1>Source Board</h1>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12 input-box">
+					<input type="text" id="source_board" class="input-lg" placeholder="username/board">
+					<div id="err1"></div>
+				</div>
+
+				<div class="col-md-6 col-sm-12 col-xs-12 title" style="padding-top: 8px;">
+					<h1>Destination Board</h1>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12 input-box">
+					<input type="text" id="destination_board" class="input-lg" placeholder="username/board">
+					<div id="err2"></div>
+				</div>
+				<input type="submit" class="btn btn-lg btn-danger" value="Pin Them !">
+				<br><br>
+			</form>
+		</div>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/pin.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
  * @Author: anirudh
  * @Date:   2016-07-11 7:10:00
  * @Last Modified by:   Anirudh Goel
- * @Last Modified time: 2016-06-17 00:23:10
+ * @Last Modified time: 2016-08-23 21:20:00
  */
 
 require_once('inc/function.inc.php');
@@ -33,9 +33,7 @@ $destination_board = "anirudhgoel/trial";
 
 $url = "https://api.pinterest.com/v1/boards/".$source_board."/pins/?access_token=".$token."&fields=note%2Cimage";
 
-// Echo the url formed here and try to run it in browser and then check for mistakes
-
-$data_json = file_get_contents($url, false, $context_1);
+@$data_json = file_get_contents($url, false, $context_1);
 $data = json_decode($data_json, true);
 // print_r($data_json);
 
@@ -52,13 +50,11 @@ if ($data["data"]) {
 	}
 
 	$response["code"] = 2;
-	$response["response"] = "successfull";
+	$response["response"] = "successful";
 } else {
 	$response["code"] = 1;
 	$response["response"] = "Error adding Pins";
 }
-
-
 
 echo json_encode($response);
 ?>

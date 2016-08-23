@@ -1,6 +1,6 @@
 body {
 	/*background-color: rgba(201, 48, 44, 0.1) !important;*/
-	background-color: rgba(211, 84, 0, 0.3) !important;
+	background-color: rgba(211, 84, 0, 0.2) !important;
 	min-height: 100vh;
 	font-family: 'Josefin Sans', sans-serif !important;
 }
@@ -31,6 +31,11 @@ h1 {
 .input-box {
 	margin-top: 40px;
 	text-align: left;
+}
+
+#err1, #err2 {
+	color: red;
+	font-size: 18px;
 }
 
 @media (max-width: 770px) {

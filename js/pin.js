@@ -2,6 +2,8 @@
 
 function pinThem(event) {
 	event.preventDefault();
+	$("#err1").html("");
+	$("#err2").html("");
 
 	var source_board = $("#source_board").val();
 	var destination_board = $("#destination_board").val();
@@ -12,7 +14,7 @@ function pinThem(event) {
 	} else if (source_board.replace(/^\/|\/$/g, "").split("/").length == 2) {
 		source_board = source_board.replace(/^\/|\/$/g, "");
 	} else {
-		$("err1").html("");
+		$("#err1").html("Enter a valid source board");
 	}
 
 	if (destination_board.substring(0,6) == "https:") {
@@ -21,10 +23,10 @@ function pinThem(event) {
 	} else if (destination_board.replace(/^\/|\/$/g, "").split("/").length == 2) {
 		destination_board = destination_board.replace(/^\/|\/$/g, "");
 	} else {
-		$("err2").html("");
+		$("#err2").html("Enter a valid destination board");
 	}
 
-	alert(source_board);
+	alert(source_board + "<br>" + destination_board);
 
 	// alert("Done" + source_board + destination_board);
 }
