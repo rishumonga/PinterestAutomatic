@@ -1,5 +1,3 @@
-// https://in.pinterest.com/anirudhgoel/die/
-
 function pinThem(event) {
 	event.preventDefault();
 	$("#err1").html("");
@@ -26,7 +24,25 @@ function pinThem(event) {
 		$("#err2").html("Enter a valid destination board");
 	}
 
-	alert(source_board + "<br>" + destination_board);
-
-	// alert("Done" + source_board + destination_board);
+	console.log(source_board + "<br>" + destination_board);
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
 }

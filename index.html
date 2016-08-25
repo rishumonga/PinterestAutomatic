@@ -27,9 +27,11 @@
 		    return "";
 		}
 
-
-
-		if (getCookie("pa-token")) {}
+		if (getCookie("pa-token") != "") {
+			window.location = "https://localhost/PinterestAutomatic/pin.html?state=cookie";
+		} else if (getCookie("pa-token") == "") {
+			window.location = "https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://localhost/PinterestAutomatic/pin.html&client_id=4844984301336407368&scope=read_public,write_public&state=secret"
+		}
 	</script>
 </body>
 </html>
