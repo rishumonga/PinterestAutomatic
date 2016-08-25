@@ -49,6 +49,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/pin.js"></script>
 	<script type="text/javascript">
+		var app_id = "4844984301336407368";
+		var app_secret = "6a6dcd9d6a9dfdabb5ff9d5df8948c7f1a67d967e3cb8a4e68c69ab59c3a808e";
 		var url = window.location.href;
 		var url_par = url.split("?");
 
@@ -73,7 +75,7 @@
 						
 						$.ajax({
 							type: "POST",
-							url: "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4844984301336407368&client_secret=6a6dcd9d6a9dfdabb5ff9d5df8948c7f1a67d967e3cb8a4e68c69ab59c3a808e&code=" + code_value,
+							url: "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=" + app_id + "&client_secret=" + app_secret + "&code=" + code_value,
 							success: function(result){
 								token = result["access_token"];
 								setCookie("pa-token", token, 7);

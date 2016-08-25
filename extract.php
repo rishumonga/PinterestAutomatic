@@ -20,16 +20,16 @@ $options_1 = array(
     )
 );
 $context_1  = stream_context_create($options_1);
-// $token = $_GET['token'];																										// User Token
-// $source_board = $_GET['source_board'];
-// $destination_board = $_GET['destination_board'];
+$token = $_GET['token'];
+$source_board = $_GET['source_board'];
+$destination_board = $_GET['destination_board'];
 
-$token = "AfD5YPj_adw_kVQRwQT9PQDsbk1-FGA1nmOh5S5DLHRgt0BD6QAAAAA";
+// $token = "AfD5YPj_adw_kVQRwQT9PQDsbk1-FGA1nmOh5S5DLHRgt0BD6QAAAAA";
 // $token = "jkkguygjo";
 // $source_board = "anirudhgoel/colours";
-$source_board = "tanuagupta/wallpaper";
+// $source_board = "tanuagupta/wallpaper";
 // $source_board = "ewrjio/wef";
-$destination_board = "anirudhgoel/trial";
+// $destination_board = "anirudhgoel/trial";
 
 $url = "https://api.pinterest.com/v1/boards/".$source_board."/pins/?access_token=".$token."&fields=note%2Cimage";
 

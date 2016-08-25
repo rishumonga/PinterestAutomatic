@@ -3,8 +3,10 @@ function pinThem(event) {
 	$("#err1").html("");
 	$("#err2").html("");
 
+	var token = getCookie("pa-token");
 	var source_board = $("#source_board").val();
 	var destination_board = $("#destination_board").val();
+	var error = 0;
 	
 	if (source_board.substring(0,6) == "https:") {
 		var source_board_parts = source_board.split("/");
@@ -13,6 +15,7 @@ function pinThem(event) {
 		source_board = source_board.replace(/^\/|\/$/g, "");
 	} else {
 		$("#err1").html("Enter a valid source board");
+		error = 1;
 	}
 
 	if (destination_board.substring(0,6) == "https:") {
@@ -22,9 +25,14 @@ function pinThem(event) {
 		destination_board = destination_board.replace(/^\/|\/$/g, "");
 	} else {
 		$("#err2").html("Enter a valid destination board");
+		error = 1;
 	}
 
-	console.log(source_board + "<br>" + destination_board);
+	if (error == 0) {
+		$.get("../PinterestAutomatic/extract.php", {token: token, source_board: source_board,destination_board: destination_board}, function(result) {
+		console.log(result);
+		});
+	}
 }
 function getCookie(cname) {
     var name = cname + "=";
