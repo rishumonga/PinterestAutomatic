@@ -16,7 +16,7 @@ h1 {
 }
 
 .input-area {
-	padding-top: 30px;
+	padding-top: 10px;
 }
 
 .btn-danger {
@@ -36,6 +36,10 @@ h1 {
 #err1, #err2 {
 	color: red;
 	font-size: 18px;
+}
+
+#response {
+	color: red;
 }
 
 @media (max-width: 770px) {

@@ -41,6 +41,9 @@
 				<input type="submit" class="btn btn-lg btn-danger" value="Pin Them !">
 				<br><br>
 			</form>
+
+			<br>
+			<div id="response" align="center"></div>
 		</div>
 	</div>
 
@@ -63,7 +66,11 @@
 
 				if (state == "cookie") {
 					var token = getCookie("pa-token");
-					setCookie("pa-token", token, 7);
+					if (token == "") {
+						window.location = "https://localhost/PinterestAutomatic/index.html";
+					} else {
+						setCookie("pa-token", token, 7);
+					}
 				} else if (state == "secret") {
 					var code = url_par[1].split("&")[1];
 					if (code == undefined) {

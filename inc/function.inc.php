@@ -6,7 +6,6 @@
 		foreach ($pins["data"] as $pin) {
 			$data = array("board" => "$dest_board", "note" => $pin["note"], "image_url" => $pin["image"]["original"]["url"]);
 
-			// use key 'http' even if you send the request to https://...
 			$options_2 = array(
 			    "ssl"=>array(
 			        "verify_peer"=>false,
@@ -20,7 +19,6 @@
 			);
 			$context = stream_context_create($options_2);
 			$result = file_get_contents($url, false, $context);
-			echo("Pinned !");
 		}
 	}
 ?>

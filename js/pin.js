@@ -4,6 +4,12 @@ function pinThem(event) {
 	$("#err2").html("");
 
 	var token = getCookie("pa-token");
+	if (token == "") {
+		$("body").html("<center><br><br><br><br><br><br><br><h1>Cookie Deleted !<br> Please login again.</h1></center>");
+		setTimeout( function() {
+			window.location = "https://localhost/PinterestAutomatic/index.html"
+		}, 2 * 1000 );
+	}
 	var source_board = $("#source_board").val();
 	var destination_board = $("#destination_board").val();
 	var error = 0;
@@ -29,8 +35,17 @@ function pinThem(event) {
 	}
 
 	if (error == 0) {
-		$.get("../PinterestAutomatic/extract.php", {token: token, source_board: source_board,destination_board: destination_board}, function(result) {
-		console.log(result);
+		$("#response").html("<h1>Pinning...</h1>");
+		$.get("/PinterestAutomatic/extract.php", {token: token, source_board: source_board,destination_board: destination_board}, function(result) {
+			console.log(result);
+			var result = JSON.parse(result);
+			if (result.code == 0) {
+				$("#response").html("<h1>Technical Error<br>Please try again later</h1>");
+			} else if (result.code == 1) {
+				$("#response").html("<h1>Error in adding pins...<br> Please check the details filled</h1>");
+			} else if (result.code == 2) {
+				$("#response").html("<h1>Pins added successfully !</h1>");
+			}
 		});
 	}
 }

@@ -24,7 +24,6 @@ $token = $_GET['token'];
 $source_board = $_GET['source_board'];
 $destination_board = $_GET['destination_board'];
 
-// $token = "AfD5YPj_adw_kVQRwQT9PQDsbk1-FGA1nmOh5S5DLHRgt0BD6QAAAAA";
 // $token = "jkkguygjo";
 // $source_board = "anirudhgoel/colours";
 // $source_board = "tanuagupta/wallpaper";
@@ -38,7 +37,7 @@ $data = json_decode($data_json, true);
 // print_r($data_json);
 
 if ($data["data"]) {
-	// create_pin($data, $token, $destination_board);
+	create_pin($data, $token, $destination_board);
 
 	while ($data["page"]["next"]) {
 		// echo("Continue <br>");
@@ -46,7 +45,7 @@ if ($data["data"]) {
 		$data_json = file_get_contents($next_url, false, $context_1);
 		$data = json_decode($data_json, true);
 
-		// create_pin($data, $token, $destination_board);
+		create_pin($data, $token, $destination_board);
 	}
 
 	$response["code"] = 2;
