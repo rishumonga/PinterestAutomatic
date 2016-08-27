@@ -36,7 +36,7 @@ function pinThem(event) {
 
 	if (error == 0) {
 		$("#response").html("<h1>Pinning...</h1>");
-		$.get("/PinterestAutomatic/pin.php", {token: token, source_board: source_board,destination_board: destination_board}, function(result) {
+		$.get("https://pinterestautomatic.herokuapp.com/pin.php", {token: token, source_board: source_board,destination_board: destination_board}, function(result) {
 			console.log(result);
 			var result = JSON.parse(result);
 			if (result.code == 0) {
