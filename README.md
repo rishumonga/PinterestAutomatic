@@ -15,11 +15,6 @@ Pinning pins from someone's board to yours individually is so tiring. So, I made
 > The app doesn't store any of your credentials or even your token. The token is stored locally in cookies.
 > The Destination Board can even be a Secret Board in your account.
 
-# Usage
-The Pinterest OAuth process only redirects to "https" sites. So, as of now the app can be run only on *localhost*.
-
-To run the app make a folder **PinterestAutomatic** in your *htdocs* directory and clone this repository in that folder and run *https://localhost/PinterestAutomatic* in your browser. The browser prompts that the *https* certificate of the site is invalid, but you can go to *Advanced options* and *Continue anyway* as you know that it's your local server.
-
 # Limitations
 The only limitation is that you can only pin 1000 pins per hour as this is the limit put up by Pinterest API, but I think that a 1000 pins must be enough for one day :wink: .
 
