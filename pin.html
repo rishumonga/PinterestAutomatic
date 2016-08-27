@@ -93,7 +93,7 @@
 		var url_par = url.split("?");
 
 		if (url_par[1] == undefined) {
-			window.location = "https://localhost/PinterestAutomatic/index.html";
+			window.location = "https://pinterestautomatic.herokuapp.com/index.html";
 		} else {
 			var state = url_par[1].split("&")[0];
 			if (state.split("=")[0] == "state") {
@@ -102,16 +102,16 @@
 				if (state == "cookie") {
 					var token = getCookie("pa-token");
 					if (token == "") {
-						window.location = "https://localhost/PinterestAutomatic/index.html";
+						window.location = "https://pinterestautomatic.herokuapp.com/index.html";
 					} else {
 						setCookie("pa-token", token, 7);
 					}
 				} else if (state == "secret") {
 					var code = url_par[1].split("&")[1];
 					if (code == undefined) {
-						window.location = "https://localhost/PinterestAutomatic/index.html";
+						window.location = "https://pinterestautomatic.herokuapp.com/index.html";
 					} else if (code.split("=")[0] != "code") {
-						window.location = "https://localhost/PinterestAutomatic/index.html";
+						window.location = "https://pinterestautomatic.herokuapp.com/index.html";
 					} else if (code.split("=")[0] == "code") {
 						var code_value = code.split("=")[1];
 						
@@ -122,22 +122,22 @@
 								token = result["access_token"];
 								setCookie("pa-token", token, 7);
 								console.log(token);
-								window.location = "https://localhost/PinterestAutomatic/pin.html?state=cookie";
+								window.location = "https://pinterestautomatic.herokuapp.com/pin.html?state=cookie";
 							},
 							error: function(){
 								$("body").html("<center><br><br><br><br><br><br><br><h1>Error obtaining Token...<br>Please contact the admin</h1></center>")
 								setTimeout( function() {
-									window.location = "https://localhost/PinterestAutomatic/index.html"
+									window.location = "https://pinterestautomatic.herokuapp.com/index.html"
 								}, 5 * 1000 );
 							}
 						});
 					}
 				} else {
-					window.location = "https://localhost/PinterestAutomatic/index.html";
+					window.location = "https://pinterestautomatic.herokuapp.com/index.html";
 				}
 
 			} else {
-				window.location = "https://localhost/PinterestAutomatic/index.html";
+				window.location = "https://pinterestautomatic.herokuapp.com/index.html";
 			}
 		}
 	</script>

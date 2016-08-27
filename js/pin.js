@@ -7,7 +7,7 @@ function pinThem(event) {
 	if (token == "") {
 		$("body").html("<center><br><br><br><br><br><br><br><h1>Cookie Deleted !<br> Please login again.</h1></center>");
 		setTimeout( function() {
-			window.location = "https://localhost/PinterestAutomatic/index.html"
+			window.location = "https://pinterestautomatic.herokuapp.com/index.html"
 		}, 2 * 1000 );
 	}
 	var source_board = $("#source_board").val();
