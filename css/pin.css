@@ -20,7 +20,7 @@ h1 {
 	padding-top: 10px;
 }
 
-.btn-danger {
+.btn-danger, .btn-warning {
 	margin-top: 90px;
 }
 
@@ -43,6 +43,11 @@ h1 {
 	color: red;
 }
 
+.modal-body {
+	text-align: left;
+	font-size: 17px;
+}
+
 @media (max-width: 770px) {
 	h1 {
 		font-size: 20px !important;
@@ -63,7 +68,7 @@ h1 {
 		padding-top: 10px;
 	}
 
-	.btn-danger {
+	.btn-danger, .btn-warning {
 		margin-top: 60px;
 	}
 
